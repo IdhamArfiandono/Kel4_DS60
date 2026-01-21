@@ -893,6 +893,5 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>Dashboard Clustering & Prediction System</strong></p>
     <p>Powered by Streamlit | Advanced Clustering Algorithms</p>
-    <p style='font-size: 0.8em;'>Algoritma: K-Means | GMM | Hierarchical | Birch | Ensemble</p>
 </div>
 """, unsafe_allow_html=True)

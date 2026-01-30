@@ -564,6 +564,7 @@ else:  # mode == "Prediksi Data Baru"
                             except:
                                 st.info("Profil cluster tidak tersedia.")
                     
+
                     # Show cluster insights FIRST
                     st.markdown("---")
                     if predicted_cluster in CLUSTER_DESCRIPTIONS:
@@ -576,6 +577,16 @@ else:  # mode == "Prediksi Data Baru"
                         
                         st.markdown("**Business Insight:**")
                         st.info(cluster_info['insight'])
+
+                        # Conclusion moved here
+                        st.markdown("---")
+                        st.success(f"""
+                        **Kesimpulan**: 
+                        
+                        Data ini diprediksi masuk ke **Cluster {predicted_cluster}** karena nilai-nilai fiturnya 
+                        paling mirip dengan karakteristik anggota cluster tersebut. Dari {len(st.session_state.selected_features)} fitur yang dianalisis, 
+                        mayoritas nilai berada dalam range normal cluster ini.
+                        """)
                     
                     # Detailed explanation
                     st.markdown("---")
@@ -644,16 +655,6 @@ else:  # mode == "Prediksi Data Baru"
                                 
                                 st.markdown(f"- {explanation}")
                             
-                            # Overall conclusion
-                            st.markdown("---")
-                            
-                            st.success(f"""
-                            **Kesimpulan**: 
-                            
-                            Data ini diprediksi masuk ke **Cluster {predicted_cluster}** karena nilai-nilai fiturnya 
-                            paling mirip dengan karakteristik anggota cluster tersebut. Dari {len(st.session_state.selected_features)} fitur yang dianalisis, 
-                            mayoritas nilai berada dalam range normal cluster ini.
-                            """)
                         except Exception as e:
                             st.warning("Detail perbandingan tidak tersedia.")
                 
